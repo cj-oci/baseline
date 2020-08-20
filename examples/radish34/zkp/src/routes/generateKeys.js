@@ -15,6 +15,7 @@ const publishArtifacts = (artifacts, bearerJWT) => {
 router.post('/', async (req, res, next) => {
   req.setTimeout(900000);
   const { filepath, jwt } = req.body;
+  console.log('this is the file path', filepath);
   try {
     const filename = path.basename(filepath, '.zok'); // filename without '.zok'
     fs.mkdirSync(`./output/${filename}`, { recursive: true });
