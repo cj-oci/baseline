@@ -15,7 +15,13 @@ describe('when the underlying zokrates provider is available', () => {
     shouldBehaveLikeZKSnarkCircuit(provider, noopAgreementCircuitPath, ['2']); // this is here for sanity...
   });
 
+<<<<<<< HEAD
   // it('runs the createAgreement circuit lifecycle successfully with preset circuit artifacts', () => {
   //   shouldBehaveLikePresetZKSnarkCircuit(provider, 'createAgreement');
   // });
+=======
+  it('runs the createAgreement circuit lifecycle successfully', () => {
+    shouldOperateOnPresetZkSnarkCircuit(provider, 'test', ["2", "4"]);
+  });
+>>>>>>> experimental update to upgrade zok-js to 1.0.25
 });
