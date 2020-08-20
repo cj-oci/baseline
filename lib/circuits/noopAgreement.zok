@@ -1,2 +1,2 @@
-def main(private field a) -> field:
+def main(private field a) -> (field):
   return a * a

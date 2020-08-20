@@ -21,7 +21,7 @@ describe('when the underlying zokrates provider is available', () => {
   // });
 =======
   it('runs the createAgreement circuit lifecycle successfully', () => {
-    shouldOperateOnPresetZkSnarkCircuit(provider, 'test', ["2", "4"]);
+    shouldOperateOnPresetZkSnarkCircuit(provider, 'test5', ['2', '4']);
   });
 >>>>>>> experimental update to upgrade zok-js to 1.0.25
 });
