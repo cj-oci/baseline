@@ -22,7 +22,7 @@ export type IZKSnarkTrustedSetupArtifacts = {
 }
 
 export type IZKSnarkTrustedSetupKeypair = {
-  vk: any;
+  vk: string;
   pk: Uint8Array;
 }
 

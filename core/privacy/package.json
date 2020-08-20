@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "@types/uuid": "^8.0.0",
-    "zokrates-js": "^1.0.25"
+    "zokrates-js": "1.0.23"
   },
   "devDependencies": {
     "@types/jsonwebtoken": "^8.3.4",

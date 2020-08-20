@@ -28,7 +28,7 @@ export class ZoKratesService implements IZKSnarkCircuitProvider {
   }
 
   async compile(source: string, location: string): Promise<IZKSnarkCompilationArtifacts> {
-    return this.zokrates.compile(source, {location: location, resolveCallback: this.importResolver});
+    return this.zokrates.compile(source, location, this.importResolver);
   }
 
   async computeWitness(artifacts: IZKSnarkCompilationArtifacts, args: any[]): Promise<IZKSnarkWitnessComputation> {
@@ -36,15 +36,15 @@ export class ZoKratesService implements IZKSnarkCircuitProvider {
   }
 
   async exportVerifier(verifyingKey: any): Promise<string> {
-    return this.zokrates.exportSolidityVerifier(verifyingKey, 'v2');
+    return this.zokrates.exportSolidityVerifier(verifyingKey, true);
   }
 
   async generateProof(circuit: any, witness: string, provingKey: any): Promise<any> {
-    return this.zokrates.generateProof(circuit, witness, provingKey);
+    return JSON.parse(this.zokrates.generateProof(circuit, witness, provingKey));
   }
 
-  async setup(artifacts: IZKSnarkCompilationArtifacts): Promise<IZKSnarkTrustedSetupArtifacts> {
-    const keypair = this.zokrates.setup(artifacts.program);
+  async setup(circuit: any): Promise<IZKSnarkTrustedSetupArtifacts> {
+    const keypair = this.zokrates.setup(circuit);
     if (!keypair || !keypair.pk || !keypair.vk) {
       return Promise.reject('failed to perform trusted setup');
     }
